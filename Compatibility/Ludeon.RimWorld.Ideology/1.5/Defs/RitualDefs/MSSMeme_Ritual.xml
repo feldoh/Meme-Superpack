@@ -39,7 +39,7 @@
 		</rulePack>
 	</TaleDef>
 
-	<RitualPatternDef Name="CelebrationConsumable">
+	<RitualPatternDef Name="CelebrationPartyChat">
 		<defName>MSSMeme_RimRimViewing</defName>
 		<label>watch RimRim</label>
 		<nameMaker>MSSMeme_NamerRitualRimRim</nameMaker>
@@ -55,13 +55,16 @@
 		<ritualObligationTargetFilter>MSSMeme_Telly</ritualObligationTargetFilter>
 		<ignoreConsumableBuildingRequirement>true</ignoreConsumableBuildingRequirement>
 		<minTechLevel>Industrial</minTechLevel>
-		<patternGroupTag>RitualBuildingConsumer</patternGroupTag>
+		<patternGroupTag>MSSMeme_RimRimPattern</patternGroupTag>
 		<alwaysStartAnytime>true</alwaysStartAnytime>
+		<tags Inherit="False">
+			<li>MSSMeme_Ritual</li>
+		</tags>
 	</RitualPatternDef>
 
 	<RitualObligationTargetFilterDef>
 		<defName>MSSMeme_Telly</defName>
-		<workerClass>RitualObligationTargetWorker_ConsumableBuilding</workerClass>
+		<workerClass>RitualObligationTargetWorker_ThingDef</workerClass>
 		<thingDefs>
 			<li>TubeTelevision</li>
 			<li>FlatscreenTelevision</li>
@@ -126,6 +129,9 @@
 		<defName>MSSMeme_WatchedRimRim</defName>
 		<description>Depending on episode quality, participants will get between {MINMOOD} and {MAXMOOD} mood for a day.</description>
 		<workerClass>RitualOutcomeEffectWorker_FromQuality</workerClass>
+		<allowAttachableOutcome>false</allowAttachableOutcome>
+		<givesDevelopmentPoints>false</givesDevelopmentPoints>
+		<warnOnLowQuality>false</warnOnLowQuality>
 		<comps>
 			<li Class="RitualOutcomeComp_Indoors">
 				<label>indoors</label>

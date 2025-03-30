@@ -44,6 +44,8 @@
 		<iconPath>Ideology/RimRim</iconPath>
 		<useRepeatPenalty>false</useRepeatPenalty>
 		<preceptClass>Precept_Ritual</preceptClass>
+		<allowDuplicates>false</allowDuplicates>
+		<usesIdeoVisualEffects>false</usesIdeoVisualEffects>
 		<selectionWeight>1.0</selectionWeight>
 		<ignoreNameUniqueness>true</ignoreNameUniqueness>
 		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>

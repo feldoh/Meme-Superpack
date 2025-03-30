@@ -425,6 +425,45 @@
 			<color>(105,105,105)</color>
 		</stuffProps>
 		<allowedArchonexusCount>80</allowedArchonexusCount>
+		<smeltable>true</smeltable>
+		<smeltProducts>
+			<Steel>15</Steel>
+		</smeltProducts>
 	</ThingDef>
+
+	<RecipeDef>
+		<defName>MSSMeme_SmeltFoolsSteel</defName>
+		<label>smelt fool's steel</label>
+		<description>Smelt, skim and recast fool's steel, to salvage what little is usable out of the mess left by the steel termites.</description>
+		<jobString>Salvaging usable steel from fool's steel.</jobString>
+		<workAmount>100</workAmount>
+		<workSpeedStat>SmeltingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Smelt</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MSSMeme_FoolsSteel</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<products>
+			<Steel>15</Steel>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MSSMeme_FoolsSteel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>ElectricSmelter</li>
+			<li>ElectricSmithy</li>
+			<li>FueledSmithy</li>
+		</recipeUsers>
+		<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+	</RecipeDef>
 
 </Defs>

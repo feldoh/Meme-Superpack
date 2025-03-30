@@ -22,6 +22,7 @@ namespace MSS.MemeSuperpack
 		public bool grignr = true;
 		public bool buildingAura = true;
 		public bool whereRimRim = true;
+		public bool autoRimRim = true;
 		public bool concreteUI = true;
 		public bool coalTypeHidden = true;
 		public bool sillyTranslations = true;
@@ -34,6 +35,7 @@ namespace MSS.MemeSuperpack
 		public bool stickbugsCanSkyfall = false;
 		public bool coalInRecipes = true;
 		public bool floorTrails = true;
+		public bool fireTrails = true;
 		public bool combustionAnimalsCanDoorbash = true;
 
 		private readonly Listing_Standard _options = new();
@@ -118,8 +120,12 @@ namespace MSS.MemeSuperpack
 			_options.CheckboxLabeled("Allow Awake", ref awake, "Allow Awake hediff which gives various buffs and debuffs based off how long they've been awake.");
 			_options.CheckboxLabeled("Allow combustion animals to door bash", ref combustionAnimalsCanDoorbash,
 				"Allow a flaming elephant to bust down your doors to hang out near your stockpile.");
+			_options.CheckboxLabeled("Allow fire trails from combustion animals", ref fireTrails,
+				"Allow animals to leave behind trails of fire, might want to keep these in a conk crete pen.");
 			_options.CheckboxLabeled("Allow floor changing trails like concrete", ref floorTrails,
 				"Allow animals to leave behind trails of other floor types, just make sure not to let one wander through your throne room.");
+			_options.CheckboxLabeled("Allow colonists to automatically go for RimRim", ref autoRimRim,
+				"Allow colonists to automatically go for RimRim when it's time.");
 		}
 
 		private void DrawEventsSettings(Rect viewPort)
@@ -152,6 +158,7 @@ namespace MSS.MemeSuperpack
 			Scribe_Values.Look(ref grignr, "grignr", true);
 			Scribe_Values.Look(ref buildingAura, "buildingAura", true);
 			Scribe_Values.Look(ref whereRimRim, "whereRimRim", true);
+			Scribe_Values.Look(ref autoRimRim, "autoRimRim", true);
 			Scribe_Values.Look(ref concreteUI, "concreteUI", true);
 			Scribe_Values.Look(ref coalTypeHidden, "coalTypeHidden", true);
 			Scribe_Values.Look(ref sillyTranslations, "sillyTranslations", true);
@@ -164,6 +171,7 @@ namespace MSS.MemeSuperpack
 			Scribe_Values.Look(ref stickbugsCanSkyfall, "stickbugsCanSkyfall", false);
 			Scribe_Values.Look(ref coalInRecipes, "coalInRecipes", true);
 			Scribe_Values.Look(ref floorTrails, "floorTrails", true);
+			Scribe_Values.Look(ref fireTrails, "fireTrails", true);
 			Scribe_Values.Look(ref combustionAnimalsCanDoorbash, "combustionAnimalsCanDoorbash", true);
 		}
 	}

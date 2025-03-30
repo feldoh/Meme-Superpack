@@ -19,7 +19,7 @@ public class ThoughtWorker_RimRimDemanded : ThoughtWorker_Precept
 		new(() => DefDatabase<ResearchProjectDef>.GetNamedSilentFail("Electricity"));
 
 	[ItemCanBeNull]
-	public Lazy<JoyKindDef> TelevisionJoyKind = new(() => DefDatabase<JoyKindDef>.GetNamedSilentFail("Television"));
+	public static Lazy<JoyKindDef> TelevisionJoyKind = new(() => DefDatabase<JoyKindDef>.GetNamedSilentFail("Television"));
 
 	public static bool PlayerCouldUseTelevision = false;
 	public static int LastTickCheckedForTelevision = 0;

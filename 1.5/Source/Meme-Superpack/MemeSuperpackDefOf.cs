@@ -13,6 +13,7 @@ namespace MSS.MemeSuperpack
 
 		[MayRequireIdeology] public static PreceptDef MSSMeme_RimRim_Demanded;
 		[MayRequireIdeology] public static PreceptDef MSSMeme_IdeoRole_Waifu;
+		[MayRequireIdeology] public static PreceptDef MSSMeme_RimRim_Ritual;
 
 		[MayRequireIdeology] public static HistoryEventDef MSSMeme_WaifuDied;
 
