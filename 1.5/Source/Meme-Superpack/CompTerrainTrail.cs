@@ -14,8 +14,13 @@ public class CompTerrainTrail : ThingComp
 	public override void CompTick()
 	{
 		base.CompTick();
-		if (!terrainOn || parent.Position == _priorLocation || Find.TickManager.TicksGame % Props.spawnTicks != 0 ||
-		    !parent.Position.IsValid) return;
+		if (
+			!terrainOn
+			|| parent.Position == _priorLocation
+			|| Find.TickManager.TicksGame % Props.spawnTicks != 0
+			|| !parent.Position.IsValid
+		)
+			return;
 		_priorLocation = parent.Position;
 		parent.Map.terrainGrid.SetTerrain(_priorLocation, Props.terrain);
 	}
@@ -27,7 +32,8 @@ public class CompTerrainTrail : ThingComp
 			yield return gizmo;
 		}
 
-		if (parent.Faction != Faction.OfPlayer) yield break;
+		if (parent.Faction != Faction.OfPlayer)
+			yield break;
 		yield return new Command_Toggle
 		{
 			defaultLabel = "MSSMeme_SpawnTerrain".Translate(Props.terrain.label),

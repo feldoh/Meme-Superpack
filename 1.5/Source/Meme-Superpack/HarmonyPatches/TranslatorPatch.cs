@@ -42,11 +42,12 @@ namespace MSS.MemeSuperpack.HarmonyPatches
 		public static string TogglePrefix = "MSSMeme_Silly_";
 
 		[HarmonyPrefix]
-		public static bool AddDataFromFile(
-			VirtualFile file)
+		public static bool AddDataFromFile(VirtualFile file)
 		{
-			var keepFile = MemeSuperpackMod.settings.sillyTranslations || !file.Name.StartsWith(TogglePrefix);
-			if (!keepFile) Log.Message("Skipping load of silly DefInjected file" + file.FullPath);
+			var keepFile =
+				MemeSuperpackMod.settings.sillyTranslations || !file.Name.StartsWith(TogglePrefix);
+			if (!keepFile)
+				Log.Message("Skipping load of silly DefInjected file" + file.FullPath);
 			return keepFile;
 		}
 	}
@@ -59,8 +60,10 @@ namespace MSS.MemeSuperpack.HarmonyPatches
 		[HarmonyPrefix]
 		public static bool LoadFromFile_Keyed(VirtualFile file)
 		{
-			var keepFile = MemeSuperpackMod.settings.sillyTranslations || !file.Name.StartsWith(TogglePrefix);
-			if (!keepFile) Log.Message("Skipping load of silly Keyed file" + file.FullPath);
+			var keepFile =
+				MemeSuperpackMod.settings.sillyTranslations || !file.Name.StartsWith(TogglePrefix);
+			if (!keepFile)
+				Log.Message("Skipping load of silly Keyed file" + file.FullPath);
 			return keepFile;
 		}
 	}

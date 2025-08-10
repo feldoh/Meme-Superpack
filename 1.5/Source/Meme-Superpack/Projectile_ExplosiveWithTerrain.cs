@@ -11,7 +11,8 @@ namespace MSS.MemeSuperpack
 		{
 			Map map = this.Map;
 			base.Explode();
-			if (WasBlockedByShield) return;
+			if (WasBlockedByShield)
+				return;
 			foreach (IntVec3 radialPatternInRadius in GenRadial.RadialPatternInRadius(10f))
 			{
 				IntVec3 c = Position + radialPatternInRadius;

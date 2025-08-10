@@ -11,8 +11,13 @@ namespace MSS.MemeSuperpack
 			IntVec3 forcedGotoPosition = pawn.mindState.forcedGotoPosition;
 			if (!forcedGotoPosition.IsValid)
 				return null;
-			using (PawnPath path = pawn.Map.pathFinder.FindPath(pawn.Position, forcedGotoPosition,
-				       TraverseParms.For(pawn, mode: TraverseMode.PassAllDestroyableThings)))
+			using (
+				PawnPath path = pawn.Map.pathFinder.FindPath(
+					pawn.Position,
+					forcedGotoPosition,
+					TraverseParms.For(pawn, mode: TraverseMode.PassAllDestroyableThings)
+				)
+			)
 			{
 				IntVec3 cellBefore;
 				Thing blocker = path.FirstBlockingBuilding(out cellBefore, pawn);

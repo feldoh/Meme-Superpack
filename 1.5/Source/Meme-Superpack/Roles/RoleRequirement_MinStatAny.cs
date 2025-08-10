@@ -13,12 +13,16 @@ public class RoleRequirement_MinStatAny : RoleRequirement
 	public override string GetLabel(Precept_Role role)
 	{
 		if (labelCached == null)
-			labelCached = stats.Count != 1
-				? "MSSMeme_RoleRequirementStatAny".Translate() + ": " + stats.Select(GetStatStr).ToCommaList()
-				: (string)("MSSMeme_RoleRequirementStat".Translate() + ": " + GetStatStr(stats[0]));
+			labelCached =
+				stats.Count != 1
+					? "MSSMeme_RoleRequirementStatAny".Translate()
+						+ ": "
+						+ stats.Select(GetStatStr).ToCommaList()
+					: (string)("MSSMeme_RoleRequirementStat".Translate() + ": " + GetStatStr(stats[0]));
 		return labelCached;
 
-		static string GetStatStr(StatModifier requirement) => requirement.stat.LabelCap + " " + requirement.value;
+		static string GetStatStr(StatModifier requirement) =>
+			requirement.stat.LabelCap + " " + requirement.value;
 	}
 
 	public override bool Met(Pawn pawn, Precept_Role role) =>

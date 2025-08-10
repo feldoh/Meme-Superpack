@@ -11,7 +11,8 @@ namespace MSS.MemeSuperpack
 
 		public override void ResolveReferences(ThingDef parentDef)
 		{
-			if (terrain == null) terrain = TerrainDefOf.Concrete;
+			if (terrain == null)
+				terrain = TerrainDefOf.Concrete;
 		}
 	}
 }

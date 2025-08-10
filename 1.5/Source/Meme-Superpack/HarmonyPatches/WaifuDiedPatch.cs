@@ -11,8 +11,14 @@ namespace MSS.MemeSuperpack.HarmonyPatches
 		[HarmonyPrefix]
 		public static bool Notify_PawnDied(Pawn victim, DamageInfo? dinfo)
 		{
-			if (ModsConfig.IdeologyActive && victim.Faction.IsPlayerSafe() && victim.Ideo.GetWaifu() == victim)
-				Find.HistoryEventsManager.RecordEvent(new HistoryEvent(MemeSuperPackDefOf.MSSMeme_WaifuDied));
+			if (
+				ModsConfig.IdeologyActive
+				&& victim.Faction.IsPlayerSafe()
+				&& victim.Ideo.GetWaifu() == victim
+			)
+				Find.HistoryEventsManager.RecordEvent(
+					new HistoryEvent(MemeSuperPackDefOf.MSSMeme_WaifuDied)
+				);
 
 			return true;
 		}

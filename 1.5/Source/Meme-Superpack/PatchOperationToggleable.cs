@@ -9,8 +9,8 @@ namespace MSS.MemeSuperpack;
 
 public class PatchOperationToggleable : PatchOperation
 {
-	private static Lazy<Dictionary<string, FieldInfo>> settings = new(() =>
-		typeof(Settings).GetFields().ToDictionary(f => f.Name));
+	private static Lazy<Dictionary<string, FieldInfo>> settings =
+		new(() => typeof(Settings).GetFields().ToDictionary(f => f.Name));
 
 	public string setting;
 	public PatchOperation enabled;
@@ -23,7 +23,8 @@ public class PatchOperationToggleable : PatchOperation
 		if (settingField == null)
 		{
 			Verse.Log.Error(
-				$"Setting {setting} not a valid setting. Valid options are: [{settings.Value.Keys.ToCommaList()}]");
+				$"Setting {setting} not a valid setting. Valid options are: [{settings.Value.Keys.ToCommaList()}]"
+			);
 			return false;
 		}
 

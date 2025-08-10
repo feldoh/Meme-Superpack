@@ -13,6 +13,14 @@
         <OutputPath>../../Assemblies/</OutputPath>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <SteamBasePath>D:/SteamLibrary/steamapps/common/RimWorld</SteamBasePath>
+        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+
+        <RimworldPath Condition=" '$(RIMWORLD_PATH)' == '' ">../../../../</RimworldPath>
+        <RimworldPath Condition=" '$(RIMWORLD_PATH)' != '' ">$(RIMWORLD_PATH)</RimworldPath>
+
+        <ModsPath Condition=" '$(STEAM_MODS_PATH)' == '' AND Exists('$(RimworldPath)/../../workshop/content/294100')">$(RimworldPath)/../../workshop/content/294100</ModsPath>
+        <ModsPath Condition=" '$(STEAM_MODS_PATH)' == '' AND !Exists('$(RimworldPath)/../../workshop/content/294100')">$(RimworldPath)/Mods</ModsPath>
+        <ModsPath Condition=" '$(STEAM_MODS_PATH)' != '' ">$(STEAM_MODS_PATH)/294100</ModsPath>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugType>portable</DebugType>
@@ -61,6 +69,7 @@
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </None>
     </ItemGroup>
+
     <ItemGroup>
         <ReleaseFiles Include="../../../1.*/**" Exclude="../../../1.*/Source/**;**/*.pdb" />
         <AboutFiles Include="../../../About/**" Exclude="../../../About/*.png~" />
@@ -68,6 +77,18 @@
         <CompatibilityFiles Include="../../../Compatibility/**" />
         <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
     </ItemGroup>
+
+    <!-- Add A step to the build to run csharpier on build -->
+    <Target Name="CheckCsharpier" BeforeTargets="Build">
+        <Exec Command="dotnet csharpier --version" IgnoreExitCode="true">
+            <Output TaskParameter="ExitCode" PropertyName="ExitCode"/>
+        </Exec>
+    </Target>
+
+    <Target Name="FormatCode" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Release' And '$(ExitCode)' == '0' " DependsOnTargets="CheckCsharpier">
+        <Exec Command="dotnet csharpier ." />
+    </Target>
+
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
         <Delete Condition="Exists('../../../$(AssemblyName).zip')" Files="../../../$(AssemblyName).zip" />
@@ -76,7 +97,12 @@
         <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'../../../Release/Compatibility/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'../../../Release/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
         <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="../../../Release/" SkipUnchangedFiles="false" />
-        <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" />
+        <ZipDirectory DestinationFile="../../../$(AssemblyName).zip" SourceDirectory="../../../Release" Overwrite="true" />
+        <ItemGroup>
+            <ReleaseFolder Include="../../../Release/**" />
+        </ItemGroup>
+        <RemoveDir Condition="Exists('$(SteamModsPath)') And Exists('$(SteamModsPath)/$(AssemblyName)')" Directories="$(SteamModsPath)/$(AssemblyName)" ContinueOnError="true"/>
+        <Copy Condition="Exists('$(SteamModsPath)') And !Exists('$(SteamModsPath)/$(AssemblyName)')" SourceFiles="@(ReleaseFolder)" DestinationFiles="@(ReleaseFolder->'$(SteamModsPath)/$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
     </Target>
     <PropertyGroup>
         <StartAction>Program</StartAction>

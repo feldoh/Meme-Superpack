@@ -14,15 +14,21 @@ public class JokeSaver
 	[HarmonyPatch(typeof(ThingDef), nameof(ThingDef.SpecialDisplayStats))]
 	public static class RedactMinableThings
 	{
-		private static string MinableThingLabel = "Stat_MineableThing_Name".Translate().CapitalizeFirst();
+		private static string MinableThingLabel = "Stat_MineableThing_Name"
+			.Translate()
+			.CapitalizeFirst();
 
 		[HarmonyPostfix]
 		public static IEnumerable<StatDrawEntry> SpecialDisplayStats(IEnumerable<StatDrawEntry> result)
 		{
 			foreach (StatDrawEntry entry in result)
 			{
-				if (!MemeSuperpackMod.settings.coalTypeHidden || entry.LabelCap != MinableThingLabel ||
-				    !(entry.ValueString.Contains("Coal") || entry.ValueString.Contains("coal"))) yield return entry;
+				if (
+					!MemeSuperpackMod.settings.coalTypeHidden
+					|| entry.LabelCap != MinableThingLabel
+					|| !(entry.ValueString.Contains("Coal") || entry.ValueString.Contains("coal"))
+				)
+					yield return entry;
 			}
 		}
 	}

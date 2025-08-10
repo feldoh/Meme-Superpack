@@ -10,6 +10,7 @@ public class Recruitment
 	[HarmonyPostfix]
 	public static void Recruit(Faction faction)
 	{
-		if (faction.IsPlayer) Find.MusicManagerPlay.ForcePlaySong(MemeSuperPackDefOf.MSSMeme_BuckoDrinkMusic, false);
+		if (faction.IsPlayer)
+			Find.MusicManagerPlay.ForcePlaySong(MemeSuperPackDefOf.MSSMeme_BuckoDrinkMusic, false);
 	}
 }

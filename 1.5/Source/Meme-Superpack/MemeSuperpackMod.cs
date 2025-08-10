@@ -10,7 +10,8 @@ namespace MSS.MemeSuperpack
 	{
 		public static Settings settings;
 
-		public MemeSuperpackMod(ModContentPack content) : base(content)
+		public MemeSuperpackMod(ModContentPack content)
+			: base(content)
 		{
 			Log.Debug("Meme-Superpack is loaded, prepare yourself");
 
@@ -37,8 +38,10 @@ namespace MSS.MemeSuperpack
 		}
 
 		public static List<PawnKindDef> CECompatiblePawnKinds() =>
-			DefDatabase<PawnKindDef>.AllDefsListForReading
-				.Where(d => d.GetModExtension<CECompatibility>()?.CECompatible ?? false)
+			DefDatabase<PawnKindDef>
+				.AllDefsListForReading.Where(d =>
+					d.GetModExtension<CECompatibility>()?.CECompatible ?? false
+				)
 				.ToList();
 	}
 }

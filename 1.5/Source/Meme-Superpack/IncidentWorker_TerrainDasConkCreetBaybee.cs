@@ -8,8 +8,9 @@ public class IncidentWorker_TerrainDasConkCreetBaybee : IncidentWorker
 	protected virtual bool SendLetter => true;
 
 	protected override bool CanFireNowSub(IncidentParms parms) =>
-		MemeSuperpackMod.settings.concreteTerrainConversion && base.CanFireNowSub(parms) &&
-		TryFindRootCell(parms.target as Map, out IntVec3 _);
+		MemeSuperpackMod.settings.concreteTerrainConversion
+		&& base.CanFireNowSub(parms)
+		&& TryFindRootCell(parms.target as Map, out IntVec3 _);
 
 	public void MakeConkCreetBaybee(Map map, IntVec3 cell)
 	{
@@ -33,6 +34,12 @@ public class IncidentWorker_TerrainDasConkCreetBaybee : IncidentWorker
 		return true;
 	}
 
-	protected virtual bool TryFindRootCell(Map map, out IntVec3 cell) => CellFinderLoose.TryFindRandomNotEdgeCellWith(10,
-		x => map.terrainGrid.TerrainAt(x) != TerrainDefOf.Concrete && map.reachability.CanReachColony(x), map, out cell);
+	protected virtual bool TryFindRootCell(Map map, out IntVec3 cell) =>
+		CellFinderLoose.TryFindRandomNotEdgeCellWith(
+			10,
+			x =>
+				map.terrainGrid.TerrainAt(x) != TerrainDefOf.Concrete && map.reachability.CanReachColony(x),
+			map,
+			out cell
+		);
 }

@@ -16,14 +16,14 @@ public class CompSpawnerFire : ThingComp
 	private bool flameOn = MemeSuperpackMod.settings.fireTrails;
 	private int flameUp = 1;
 
-
 	private CompProperties_SpawnerFire Props => (CompProperties_SpawnerFire)props;
 
 	private bool CanSpawnFire => parent is not Hive parentThing || parentThing.CompDormant.Awake;
 
 	public override void CompTick()
 	{
-		if (!flameOn) return;
+		if (!flameOn)
+			return;
 		base.CompTick();
 		if (parent.Position != _priorLocation)
 		{
@@ -31,17 +31,29 @@ public class CompSpawnerFire : ThingComp
 			_priorLocations.Push(_priorLocation);
 		}
 
-		if (!parent.IsHashIntervalTick(Props.spawnTicks / flameUp) || !CanSpawnFire) return;
+		if (!parent.IsHashIntervalTick(Props.spawnTicks / flameUp) || !CanSpawnFire)
+			return;
 		TrySpawnFire();
 	}
 
 	public void TrySpawnFire()
 	{
 		IntVec3 result = IntVec3.Invalid;
-		if (parent.Map == null || (!Props.behindOnly && !CellFinder.TryFindRandomReachableNearbyCell(parent.Position,
-			    parent.Map,
-			    Props.spawnRadius, TraverseParms.For(TraverseMode.PassAllDestroyableThings),
-			    x => x.TerrainFlammableNow(parent.Map), x => true, out result)))
+		if (
+			parent.Map == null
+			|| (
+				!Props.behindOnly
+				&& !CellFinder.TryFindRandomReachableNearbyCell(
+					parent.Position,
+					parent.Map,
+					Props.spawnRadius,
+					TraverseParms.For(TraverseMode.PassAllDestroyableThings),
+					x => x.TerrainFlammableNow(parent.Map),
+					x => true,
+					out result
+				)
+			)
+		)
 			return;
 		if (Props.behindOnly)
 		{
@@ -53,7 +65,8 @@ public class CompSpawnerFire : ThingComp
 			}
 		}
 
-		if (result != IntVec3.Invalid) FireUtility.TryStartFireIn(result, parent.Map, Props.fireSize * flameUp, parent);
+		if (result != IntVec3.Invalid)
+			FireUtility.TryStartFireIn(result, parent.Map, Props.fireSize * flameUp, parent);
 	}
 
 	public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -63,7 +76,8 @@ public class CompSpawnerFire : ThingComp
 			yield return gizmo;
 		}
 
-		if (parent.Faction != Faction.OfPlayer) yield break;
+		if (parent.Faction != Faction.OfPlayer)
+			yield break;
 		yield return new Command_Toggle
 		{
 			defaultLabel = "MSSMeme_SpawnFire".Translate(),

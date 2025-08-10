@@ -13,12 +13,14 @@ public class ElephantPatches
 		[HarmonyPrefix]
 		public static bool Capacity(ref float __result, Pawn p, StringBuilder explanation = null)
 		{
-			if (p.def.defName != "MSSMeme_CarryElephant") return true;
+			if (p.def.defName != "MSSMeme_CarryElephant")
+				return true;
 
 			// Mass of a pyramid
 			__result = MassUtility.CanEverCarryAnything(p) ? 420000 : 0;
 
-			if (explanation == null) return false;
+			if (explanation == null)
+				return false;
 			if (explanation.Length > 0)
 				explanation.AppendLine();
 			explanation.Append("  - " + p.LabelShortCap + ": " + __result.ToStringMassOffset());

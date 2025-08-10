@@ -13,14 +13,18 @@ namespace MSS.MemeSuperpack
 		public bool fightWithSummoner = false;
 		public bool fightTarget = true;
 
-		public List<PawnKindDef> PossiblePawnKinds => (possiblePawnKinds?.Count ?? 0) > 0
-			? possiblePawnKinds
-			: MemeSuperpackMod.CECompatiblePawnKinds();
+		public List<PawnKindDef> PossiblePawnKinds =>
+			(possiblePawnKinds?.Count ?? 0) > 0
+				? possiblePawnKinds
+				: MemeSuperpackMod.CECompatiblePawnKinds();
 
 		public PawnKindDef PawnKind()
 		{
 			return PossiblePawnKinds.RandomElementByWeight(pkd =>
-				pkd.GetModExtension<CECompatibility>()?.CECompatibilityRating ?? pkd.RaceProps?.wildness ?? 0.1f);
+				pkd.GetModExtension<CECompatibility>()?.CECompatibilityRating
+				?? pkd.RaceProps?.wildness
+				?? 0.1f
+			);
 		}
 	}
 }

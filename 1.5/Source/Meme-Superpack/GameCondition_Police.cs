@@ -38,8 +38,15 @@ public class GameCondition_Police : GameCondition
 		base.Init();
 		foreach (Pawn pawn in SingleMap.PlayerPawnsForStoryteller)
 		{
-			if (!pawn.RaceProps.IsFlesh || pawn.Dead || pawn.Downed || pawn.Deathresting || pawn.IsSelfShutdown() ||
-			    pawn.Awake()) return;
+			if (
+				!pawn.RaceProps.IsFlesh
+				|| pawn.Dead
+				|| pawn.Downed
+				|| pawn.Deathresting
+				|| pawn.IsSelfShutdown()
+				|| pawn.Awake()
+			)
+				return;
 			pawn.mindState.canSleepTick = Find.TickManager.TicksGame + 5000;
 			if (pawn.CurJob != null)
 				pawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
@@ -49,7 +56,9 @@ public class GameCondition_Police : GameCondition
 	public override int TransitionTicks => 200;
 
 	public override bool AllowEnjoyableOutsideNow(Map map) => false;
+
 	public override float SkyGazeChanceFactor(Map map) => 0f;
+
 	public override WeatherDef ForcedWeather() => _forcedWeather;
 
 	public override float SkyGazeJoyGainFactor(Map map) => 0f;
@@ -60,16 +69,25 @@ public class GameCondition_Police : GameCondition
 	public override SkyTarget? SkyTarget(Map map)
 	{
 		Color currentColor = CurrentColor;
-		SkyColorSet colorSet = new SkyColorSet(Color.Lerp(Color.white, currentColor, SkyColorStrength) * Brightness(map),
-			Color.grey, Color.Lerp(Color.white, currentColor, OverlayColorStrength) * Brightness(map), 1f);
-		return new SkyTarget(Mathf.Max(GenCelestial.CurCelestialSunGlow(map), Glow), colorSet,
-			0.6f, 0.5f);
+		SkyColorSet colorSet = new SkyColorSet(
+			Color.Lerp(Color.white, currentColor, SkyColorStrength) * Brightness(map),
+			Color.grey,
+			Color.Lerp(Color.white, currentColor, OverlayColorStrength) * Brightness(map),
+			1f
+		);
+		return new SkyTarget(
+			Mathf.Max(GenCelestial.CurCelestialSunGlow(map), Glow),
+			colorSet,
+			0.6f,
+			0.5f
+		);
 	}
 
 	private float Brightness(Map map) => Mathf.Max(MaxSunGlow, GenCelestial.CurCelestialSunGlow(map));
 
 	public override void GameConditionTick()
 	{
-		if (TicksPassed % 100 == 0) _isRed = !_isRed;
+		if (TicksPassed % 100 == 0)
+			_isRed = !_isRed;
 	}
 }

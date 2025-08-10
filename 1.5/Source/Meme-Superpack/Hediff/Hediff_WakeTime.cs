@@ -12,7 +12,8 @@ public class Hediff_WakeTime : HediffWithComps
 	{
 		get
 		{
-			if (pawn.needs?.rest == null) lastRestTick = null;
+			if (pawn.needs?.rest == null)
+				lastRestTick = null;
 			if (lastRestTick == null && pawn.needs?.rest is { } rest)
 				lastRestTick = Traverse.Create(rest).Field<int>("lastRestTick");
 			return lastRestTick?.Value ?? -999;
@@ -22,7 +23,8 @@ public class Hediff_WakeTime : HediffWithComps
 	public override void Tick()
 	{
 		base.Tick();
-		if (Find.TickManager.TicksGame % 1500 != 0 || pawn.needs?.rest is not { } rest) return;
+		if (Find.TickManager.TicksGame % 1500 != 0 || pawn.needs?.rest is not { } rest)
+			return;
 		if (rest.Resting)
 		{
 			Severity = 0;

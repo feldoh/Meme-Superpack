@@ -8,7 +8,12 @@ namespace MSS.MemeSuperpack
 	{
 		public List<ThingDef> nukeDefs;
 
-		public static Lazy<HashSet<ThingDef>> NukeDefs => new(() =>
-			new HashSet<ThingDef>(DefDatabase<Nukes>.GetNamedSilentFail("MSSMeme_Nukes")?.nukeDefs ?? new List<ThingDef>()));
+		public static Lazy<HashSet<ThingDef>> NukeDefs =>
+			new(
+				() =>
+					new HashSet<ThingDef>(
+						DefDatabase<Nukes>.GetNamedSilentFail("MSSMeme_Nukes")?.nukeDefs ?? new List<ThingDef>()
+					)
+			);
 	}
 }
