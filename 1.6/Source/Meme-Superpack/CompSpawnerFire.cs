@@ -15,8 +15,7 @@ public class CompSpawnerFire : ThingComp
 	private IntVec3 _priorLocation;
 	private bool flameOn = MemeSuperpackMod.settings.fireTrails;
 	private int flameUp = 1;
-
-
+	
 	private CompProperties_SpawnerFire Props => (CompProperties_SpawnerFire)props;
 
 	private bool CanSpawnFire => parent is not Hive parentThing || parentThing.CompDormant.Awake;
