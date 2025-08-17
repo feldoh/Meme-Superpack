@@ -258,7 +258,7 @@
 			<li>
 				<label>incompatible with yayo</label>
 				<description>Alas, I am incompatible with this yayo!</description>
-				<baseMoodEffect>-999</baseMoodEffect>
+				<baseMoodEffect>-20</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>

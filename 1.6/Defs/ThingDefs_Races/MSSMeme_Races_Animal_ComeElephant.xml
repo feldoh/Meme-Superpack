@@ -18,6 +18,7 @@
 			<ComfyTemperatureMax>50</ComfyTemperatureMax>
 			<FilthRate>24</FilthRate>
 			<CaravanRidingSpeedFactor>1.3</CaravanRidingSpeedFactor>
+			<Wildness>0.75</Wildness>
 		</statBases>
 		<tools>
 			<li>
@@ -69,7 +70,6 @@
 			<foodType>VegetarianRoughAnimal</foodType>
 			<leatherDef>Leather_Elephant</leatherDef>
 			<gestationPeriodDays>13.32</gestationPeriodDays>
-			<wildness>0.75</wildness>
 			<trainability>Advanced</trainability>
 			<lifeExpectancy>50</lifeExpectancy>
 			<packAnimal>true</packAnimal>
@@ -193,6 +193,7 @@
 		<description>A rare species of elephant obsessed with compatibility. Is known to respond to psychic summons and is unusually strong in combat.\n\nThis is one of many psy-sensitive elephants in the vocatus elephantus genus. An accomplished elephant summoner can summon enough combat elephants to flatten a small army. Despite being born looking innocent these elephants are vicious and will gradually stain their hide a dark reddish brown from the splashes of the blood of their enemies.</description>
 		<statBases>
 			<MarketValue>1420</MarketValue>
+			<Wildness>0.80</Wildness>
 		</statBases>
 		<race>
 			<baseHungerRate>1.8</baseHungerRate>
@@ -200,7 +201,6 @@
 			<baseHealthScale>4.20</baseHealthScale>
 			<foodType>VegetarianRoughAnimal, CarnivoreAnimal</foodType>
 			<leatherDef>Leather_Elephant</leatherDef>
-			<wildness>0.80</wildness>
 			<manhunterOnDamageChance>0.75</manhunterOnDamageChance>
 		</race>
 	</ThingDef>
@@ -279,6 +279,7 @@
 			<ComfyTemperatureMax>666</ComfyTemperatureMax>
 			<ArmorRating_Heat>6.66</ArmorRating_Heat>
 			<MoveSpeed>5.2</MoveSpeed>
+			<Wildness>0.80</Wildness>
 		</statBases>
 		<race>
 			<thinkTreeMain>MSSMeme_CombustionAnimal</thinkTreeMain>
@@ -287,7 +288,6 @@
 			<baseHealthScale>6.66</baseHealthScale>
 			<foodType>VegetarianRoughAnimal, CarnivoreAnimal</foodType>
 			<leatherDef>Leather_Elephant</leatherDef>
-			<wildness>0.80</wildness>
 			<manhunterOnDamageChance>0.75</manhunterOnDamageChance>
 			<lifeStageAges Inherit="False">
 				<li>
@@ -365,6 +365,7 @@
 		<description>A rare species of elephant obsessed with compatibility and an unusual affixation with carrying large amounts of items. Is known to respond to psychic summons and possesses a soothing presence.\n\n While it is a massive creature as well as a capable fighter, the carry elephant is a relatively passive creature, far more interested in hauling items from one place to another for a colony than anything else.\n\nThis is one of many psy-sensitive elephants in the vocatus elephantus genus. A skilled elephant summoner could summon enough carry elephants to never need to do menial labor ever again.</description>
 		<statBases>
 			<MarketValue>1420</MarketValue>
+			<Wildness>0.50</Wildness>
 		</statBases>
 		<race>
 			<baseHungerRate>1.8</baseHungerRate>
@@ -372,7 +373,6 @@
 			<baseHealthScale>4.20</baseHealthScale>
 			<foodType>VegetarianRoughAnimal</foodType>
 			<leatherDef>Leather_Elephant</leatherDef>
-			<wildness>0.50</wildness>
 			<manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
 			<manhunterOnDamageChance>0.40</manhunterOnDamageChance>
 		</race>
@@ -454,6 +454,7 @@
 		<description>A rare species of elephant obsessed with compatibility and extreme violence. It is known to respond to psychic summons and is unusually wild in combat.\n\nThis elephant let its obsession for compatibility consume it, removing what sense of reason an elephant possesses. It is rumored that any elephant that pursues the goal of perfect compatibility for too long becomes a crazed elephant.\n\nThis is one of many psy-sensitive elephants in the vocatus elephantus genus. An accomplished elephant summoner can summon enough crazed elephants to flatten a small army as well as themselves if they aren't careful.</description>
 		<statBases>
 			<MarketValue>1420</MarketValue>
+			<Wildness>0.99</Wildness>
 		</statBases>
 		<race>
 			<baseHungerRate>1.8</baseHungerRate>
@@ -461,7 +462,6 @@
 			<baseHealthScale>4.20</baseHealthScale>
 			<foodType>VegetarianRoughAnimal, CarnivoreAnimal</foodType>
 			<leatherDef>Leather_Elephant</leatherDef>
-			<wildness>0.99</wildness>
 			<manhunterOnDamageChance>1</manhunterOnDamageChance>
 		</race>
 	</ThingDef>

@@ -18,9 +18,9 @@
 			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
 			<ComfyTemperatureMin>16</ComfyTemperatureMin>
 			<ComfyTemperatureMax>28</ComfyTemperatureMax>
+			<Wildness>0.1</Wildness>
 		</statBases>
 		<race>
-			<wildness>0.1</wildness>
 			<fleshType>Insectoid</fleshType>
 			<bloodDef>Filth_BloodInsect</bloodDef>
 			<foodType>VegetarianRoughAnimal</foodType>

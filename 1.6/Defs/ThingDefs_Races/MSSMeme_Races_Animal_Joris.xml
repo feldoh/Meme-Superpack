@@ -11,9 +11,9 @@
 		<description>I like build Joris are a curious and friendly breed of Joris. Those in their vicinity find themselves feeling an inescapable urge to build base good.\n\nThe desire to build base can lead those nearby to ignore their own needs in favour of the urge to build ever more impressive base.\n\nEver enraptured by base this Joris will tend to build free structures for you, how nice.</description>
 		<statBases>
 			<ComfyTemperatureMin>-55</ComfyTemperatureMin>
+			<Wildness>0.25</Wildness>
 		</statBases>
 		<race>
-			<wildness>0.25</wildness>
 			<useMeatFrom>Bear_Grizzly</useMeatFrom>
 			<trainability>Advanced</trainability>
 			<manhunterOnTameFailChance>0.0</manhunterOnTameFailChance>
@@ -114,9 +114,9 @@
 			<LeatherAmount>300</LeatherAmount>
 			<PawnTrapSpringChance>4</PawnTrapSpringChance>
 			<IncomingDamageFactor>0.3</IncomingDamageFactor>
+			<Wildness>0.55</Wildness>
 		</statBases>
 		<race>
-			<wildness>0.55</wildness>
 			<useMeatFrom>Bear_Grizzly</useMeatFrom>
 			<trainability>Advanced</trainability>
 			<manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
@@ -216,9 +216,9 @@
 			<PawnTrapSpringChance>4</PawnTrapSpringChance>
 			<IncomingDamageFactor>0.3</IncomingDamageFactor>
 			<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">0.8</ToxicEnvironmentResistance>
+			<Wildness>0.25</Wildness>
 		</statBases>
 		<race>
-			<wildness>0.25</wildness>
 			<useMeatFrom>Bear_Grizzly</useMeatFrom>
 			<trainability>Advanced</trainability>
 			<manhunterOnTameFailChance>0.2</manhunterOnTameFailChance>

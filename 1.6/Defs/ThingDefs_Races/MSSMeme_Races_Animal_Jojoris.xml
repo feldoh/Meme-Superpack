@@ -11,9 +11,9 @@
 		<description>Jotoris is the third in a long line of Jojoris'. Jotoris is arrogant, hot headed, and angry at the world - and rumours say he has a secret special power that only a select few can see.</description>
 		<statBases>
 			<ComfyTemperatureMin>-55</ComfyTemperatureMin>
+			<Wildness>0.85</Wildness>
 		</statBases>
 		<race>
-			<wildness>0.85</wildness>
 			<useMeatFrom>Bear_Grizzly</useMeatFrom>
 		</race>
 	</ThingDef>
@@ -79,9 +79,9 @@
 		<description>You thought it was Joris, but it was actually me, Jio!</description>
 		<statBases>
 			<ComfyTemperatureMin>-55</ComfyTemperatureMin>
+			<Wildness>0.85</Wildness>
 		</statBases>
 		<race>
-			<wildness>0.85</wildness>
 			<useMeatFrom>Bear_Grizzly</useMeatFrom>
 		</race>
 	</ThingDef>

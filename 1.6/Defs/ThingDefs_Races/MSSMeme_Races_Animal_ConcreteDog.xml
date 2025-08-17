@@ -11,6 +11,7 @@
       <MoveSpeed>3.1</MoveSpeed>
       <MarketValue>100</MarketValue>
       <ComfyTemperatureMin>-15</ComfyTemperatureMin>
+      <Wildness>0</Wildness>
     </statBases>
     <tools>
       <li>
@@ -64,7 +65,6 @@
       <leatherDef>Leather_Dog</leatherDef>
       <nameOnTameChance>1</nameOnTameChance>
       <trainability>Intermediate</trainability>
-      <wildness>0</wildness>
       <nuzzleMtbHours>16</nuzzleMtbHours>
       <gestationPeriodDays>10</gestationPeriodDays>
       <litterSizeCurve>
